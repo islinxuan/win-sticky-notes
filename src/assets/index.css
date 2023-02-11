@@ -1,0 +1,23 @@
+:root {
+  --font-sans: Helvetica, Arial, sans-serif;
+  --text-base: 1rem;
+  --leading-normal: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+body {
+  font: var(--text-base) / var(--leading-normal) var(--font-sans);
+  margin: 0;
+}
