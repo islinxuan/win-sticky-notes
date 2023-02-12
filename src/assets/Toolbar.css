@@ -1,0 +1,28 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toolbar button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+}
+.toolbar button:focus,
+.toolbar button:hover {
+  background-color: var(--bg-neutral-100);
+  outline: none;
+}
+.toolbar button:active {
+  background-color: var(--bg-neutral-200);
+}
+
+.material-symbols-rounded.text-4xl {
+  font-size: var(--text-4xl);
+}
+.material-symbols-rounded.p-1 {
+  padding: 4px;
+}
