@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toolbar } from "./components/Toolbar";
+import { SearchForm } from "./components/SearchForm";
 import { NoteList } from "./components/NoteList";
 import "./assets/App.css";
 
@@ -12,6 +13,8 @@ export function App() {
       isActive: false,
     },
   ]);
+  const [keyword, setKeyword] = useState("");
+  const filterNotes = notes.filter((note) => note.text.toLowerCase().includes(keyword.toLowerCase()));
 
   function handleAddNote() {
     const newNote = {
@@ -30,7 +33,8 @@ export function App() {
   return (
     <>
       <Toolbar onebtn="add" anotherbtn="light_mode" onOneClick={handleAddNote} />
-      <NoteList notes={notes} onRemoveNote={handleRemoveNote} />
+      <SearchForm keyword={keyword} onSearch={setKeyword} />
+      <NoteList notes={filterNotes} onRemoveNote={handleRemoveNote} />
     </>
   );
 }
