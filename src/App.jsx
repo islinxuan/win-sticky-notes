@@ -1,4 +1,5 @@
 import { useStorageState } from "./hooks/useStorageState";
+import { useStorageReducer, notesReducer } from "./hooks/useStorageReducer";
 import { Toolbar } from "./components/Toolbar";
 import { SearchForm } from "./components/SearchForm";
 import { NoteList } from "./components/NoteList";
@@ -6,7 +7,7 @@ import { EditDialog } from "./components/EditDialog";
 import "./assets/App.css";
 
 export function App() {
-  const [notes, setNotes] = useStorageState("notes", [
+  const [notes, dispatchNotes] = useStorageReducer("notes", notesReducer, [
     {
       id: crypto.randomUUID(),
       text: "hello (again)",
@@ -19,35 +20,33 @@ export function App() {
   const activeNote = filterNotes.find((note) => note.isActive);
 
   function handleAddNote() {
-    const newNote = {
+    dispatchNotes({
+      type: "add",
       id: crypto.randomUUID(),
-      text: "",
       lastModified: Date.now(),
-      isActive: true,
-    };
-    setNotes([newNote, ...notes]);
+    });
   }
 
   function handleRemoveNote(id) {
-    setNotes(notes.filter((note) => note.id !== id));
+    dispatchNotes({
+      type: "remove",
+      id,
+    });
   }
 
-  function handleUpdateNote(updatedNote) {
-    const updatedNotesArr = notes.map((note) => {
-      if (note.id === updatedNote.id) {
-        return updatedNote;
-      }
-      return note;
+  function handleUpdateNote(note) {
+    dispatchNotes({
+      type: "update",
+      note,
     });
-
-    setNotes(updatedNotesArr);
   }
 
   function handleDnDnote(startIndex, endIndex) {
-    const _notes = [...notes];
-    const dragItem = _notes.splice(startIndex, 1);
-    _notes.splice(endIndex, 0, ...dragItem);
-    setNotes(_notes);
+    dispatchNotes({
+      type: "dnd",
+      startIndex,
+      endIndex,
+    });
   }
 
   return (
