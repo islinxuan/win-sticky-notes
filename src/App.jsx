@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useStorageState } from "./hooks/useStorageState";
 import { Toolbar } from "./components/Toolbar";
 import { SearchForm } from "./components/SearchForm";
 import { NoteList } from "./components/NoteList";
@@ -6,7 +6,7 @@ import { EditDialog } from "./components/EditDialog";
 import "./assets/App.css";
 
 export function App() {
-  const [notes, setNotes] = useState([
+  const [notes, setNotes] = useStorageState("notes", [
     {
       id: crypto.randomUUID(),
       text: "hello (again)",
@@ -14,7 +14,7 @@ export function App() {
       isActive: false,
     },
   ]);
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useStorageState("keyword", "");
   const filterNotes = notes.filter((note) => note.text.toLowerCase().includes(keyword.toLowerCase()));
   const activeNote = filterNotes.find((note) => note.isActive);
 
