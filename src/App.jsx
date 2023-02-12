@@ -1,5 +1,6 @@
 import { useStorageState } from "./hooks/useStorageState";
 import { useStorageReducer, notesReducer } from "./hooks/useStorageReducer";
+import { useDebounceValue } from "./hooks/useDebouncedValue";
 import { Toolbar } from "./components/Toolbar";
 import { SearchForm } from "./components/SearchForm";
 import { NoteList } from "./components/NoteList";
@@ -16,7 +17,8 @@ export function App() {
     },
   ]);
   const [keyword, setKeyword] = useStorageState("keyword", "");
-  const filterNotes = notes.filter((note) => note.text.toLowerCase().includes(keyword.toLowerCase()));
+  const debouncedKeyword = useDebounceValue(keyword, 500);
+  const filterNotes = notes.filter((note) => note.text.toLowerCase().includes(debouncedKeyword.toLowerCase()));
   const activeNote = filterNotes.find((note) => note.isActive);
 
   function handleAddNote() {
