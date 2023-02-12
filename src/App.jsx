@@ -43,11 +43,23 @@ export function App() {
     setNotes(updatedNotesArr);
   }
 
+  function handleDnDnote(startIndex, endIndex) {
+    const _notes = [...notes];
+    const dragItem = _notes.splice(startIndex, 1);
+    _notes.splice(endIndex, 0, ...dragItem);
+    setNotes(_notes);
+  }
+
   return (
     <>
       <Toolbar onebtn="add" anotherbtn="light_mode" onOneClick={handleAddNote} />
       <SearchForm keyword={keyword} onSearch={setKeyword} />
-      <NoteList notes={filterNotes} onRemoveNote={handleRemoveNote} onUpdateNote={handleUpdateNote} />
+      <NoteList
+        notes={filterNotes}
+        onRemoveNote={handleRemoveNote}
+        onUpdateNote={handleUpdateNote}
+        onDnDnote={handleDnDnote}
+      />
       <EditDialog activeNote={activeNote} onUpdateNote={handleUpdateNote} />
     </>
   );
