@@ -51,9 +51,16 @@ export function App() {
     });
   }
 
+  const [colorMode, setColorMode] = useStorageState("color-mode", "light");
+  const colorModeIcon = `${colorMode}_mode`;
+
+  function handleChangeMode() {
+    setColorMode(colorMode === "light" ? "dark" : "light");
+  }
+
   return (
-    <>
-      <Toolbar onebtn="add" anotherbtn="light_mode" onOneClick={handleAddNote} />
+    <div className="app" color-mode={colorMode}>
+      <Toolbar onebtn="add" anotherbtn={colorModeIcon} onOneClick={handleAddNote} onAnotherClick={handleChangeMode} />
       <SearchForm keyword={keyword} onSearch={setKeyword} />
       <NoteList
         notes={filterNotes}
@@ -62,6 +69,6 @@ export function App() {
         onDnDnote={handleDnDnote}
       />
       <EditDialog activeNote={activeNote} onUpdateNote={handleUpdateNote} />
-    </>
+    </div>
   );
 }

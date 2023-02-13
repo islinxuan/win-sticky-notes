@@ -13,11 +13,11 @@
 }
 .toolbar button:focus,
 .toolbar button:hover {
-  background-color: var(--bg-neutral-100);
+  background-color: var(--bg-btn-hover);
   outline: none;
 }
 .toolbar button:active {
-  background-color: var(--bg-neutral-200);
+  background-color: var(--bg-btn-active);
 }
 
 .material-symbols-rounded.text-4xl {

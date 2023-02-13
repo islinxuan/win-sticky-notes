@@ -1,11 +1,59 @@
-#root {
-  padding: 16px;
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,200,0,200");
+
+.app {
+  --font-sans: Helvetica, Arial, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-4xl: 2rem;
+  --leading-normal: 1.5;
+  --font-semibold: 600;
+
+  --fg-major: #000;
+  --bg-major: #fff;
+  --bg-note: #fef3c7;
+  --fg-warning: #fff;
+  --bg-warning-hover: #f87171;
+  --bg-warning-active: #fca5a5;
+  --bg-btn-hover: #f5f5f5;
+  --bg-btn-active: #e5e5e5;
+  --bg-q: #f5f5f5;
+  --bg-q-btn-hover: #e5e5e5;
+  --bg-q-btn-active: #d4d4d4;
+  --bd-editor: #ede6c2;
+  --bg-editor-btn-hover: #eee7c3;
+  --bg-editor-btn-active: #dcd5b4;
+
+  font: var(--text-base) / var(--leading-normal) var(--font-sans);
+  color: var(--fg-major);
+  background-color: var(--bg-major);
   max-inline-size: 768px;
+  min-block-size: 100vb;
   margin-inline: auto;
+  padding: 16px;
+}
+
+.app[color-mode="dark"] {
+  --fg-major: #f5f5f5;
+  --bg-major: #121212;
+  --bg-note: #2a2400;
+  --bg-btn-hover: #222;
+  --bg-btn-active: #2e2e2e;
+  --bg-q: #222;
+  --bg-q-btn-hover: #2e2e2e;
+  --bg-q-btn-active: #3b3b3b;
+  --bd-editor: #454238;
+  --bg-editor-btn-hover: #312e12;
+  --bg-editor-btn-active: #3f3b21;
+}
+
+button span {
+  vertical-align: bottom;
 }
 
 @media screen and (min-width: 640px) {
-  #root {
+  .app {
     padding: 32px;
   }
 }

@@ -13,7 +13,7 @@
 }
 
 #q {
-  background-color: var(--bg-neutral-100);
+  background-color: var(--bg-q);
   padding: 8px 12px;
   border: none;
   border-start-start-radius: 4px;
@@ -25,7 +25,7 @@
 
 .search-form button {
   cursor: pointer;
-  background-color: var(--bg-neutral-100);
+  background-color: var(--bg-q);
   padding-inline: 8px;
   border: none;
   border-start-end-radius: 4px;
@@ -33,9 +33,9 @@
 }
 .search-form button:focus,
 .search-form button:hover {
-  background-color: var(--bg-neutral-200);
+  background-color: var(--bg-q-btn-hover);
   outline: none;
 }
 .search-form button:active {
-  background-color: var(--bg-neutral-300);
+  background-color: var(--bg-q-btn-active);
 }

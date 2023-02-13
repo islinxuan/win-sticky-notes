@@ -7,7 +7,7 @@
 }
 
 .note {
-  background-color: var(--bg-amber-100);
+  background-color: var(--bg-note);
   padding: 16px 16px 12px;
   border-radius: 4px;
 }
@@ -37,13 +37,13 @@
 }
 .note button:focus,
 .note button:hover {
-  background-color: var(--bg-red-400);
-  color: var(--text-white);
+  background-color: var(--bg-warning-hover);
+  color: var(--fg-warning);
   outline: none;
 }
 .note button:active {
-  background-color: var(--bg-red-300);
-  color: var(--text-white);
+  background-color: var(--bg-warning-active);
+  color: var(--fg-warning);
 }
 
 .material-symbols-rounded.text-xl {

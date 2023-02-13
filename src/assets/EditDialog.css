@@ -1,5 +1,5 @@
 .editor {
-  background-color: var(--bg-amber-100);
+  background-color: var(--bg-note);
   padding: 0;
   border: none;
   border-radius: 4px;
@@ -22,7 +22,7 @@
 }
 
 .editor-toolbar {
-  border-block-end: 1.5px solid #ede6c2;
+  border-block-end: 1.5px solid var(--bd-editor);
   padding: 4px;
   display: flex;
   justify-content: space-between;
@@ -38,11 +38,11 @@
 }
 .editor-toolbar button:focus,
 .editor-toolbar button:hover {
-  background-color: #eee7c3;
+  background-color: var(--bg-editor-btn-hover);
   outline: none;
 }
 .editor-toolbar button:active {
-  background-color: #dcd5b4;
+  background-color: var(--bg-editor-btn-active);
 }
 
 .material-symbols-rounded.p-1 {
